@@ -19,6 +19,9 @@ const WindowWidth = (window.getComputedStyle(document.body).width).substring(0,(
 const ButtomH = (window.getComputedStyle(buttonMeme).height).substring(0,(window.getComputedStyle(buttonMeme).height).length-2) ;
 const ButtomW = (window.getComputedStyle(buttonMeme).width).substring(0,(window.getComputedStyle(buttonMeme).width).length-2) ;
 
+const ButtomPositionX = window.getComputedStyle(buttonMeme).clientX;
+const ButtomPositionY =window.getComputedStyle(buttonMeme).clientY;
+
 let memeCount=0;
 
 class memeCreateImg{
@@ -73,6 +76,8 @@ changeColorButtom.addEventListener("click",()=>{
     bodyElement.classList.toggle("changeColor");
     getColor();
     let deleteFigure;
+    // buttonMeme.style.clientX= ButtomPositionX;
+    // buttonMeme.style.clientY= ButtomPositionY;   
     memeCount=0;
     if(colorBackground==="rgb(255, 0, 0)"){
         deleteFigure = document.getElementById("figureIdviolet");
