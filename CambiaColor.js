@@ -1,7 +1,13 @@
+/*declaraciones
+ ********************************************************************************************/
+
 const backgroundSpan = document.querySelector(".row span");
 const positionSpan = document.querySelectorAll(".row span")[1];
 const positionLabel = document.querySelector(".boxDetection");
 const buttonMeme = document.getElementById("buttomMeme");
+
+const contImgviolet =  document.getElementById("memeVioleta");
+const contImgred =  document.getElementById("memeRojo");
 
 
 const bodyElement = document.querySelector("body");
@@ -15,6 +21,18 @@ const ButtomW = (window.getComputedStyle(buttonMeme).width).substring(0,(window.
 
 let memeCount=0;
 
+class memeCreateImg{
+    constructor(name,description){
+        this.name=name;
+        this.src=this.name+".jpg";
+        this.description=description;       
+    }
+    
+};
+
+const newImgred = new memeCreateImg("red","this is the red meme");
+const newImgviolet = new memeCreateImg("violet","this is the violet meme");
+
 const getColor = ()=>{
     colorBackground = window.getComputedStyle(bodyElement).backgroundColor;
     if(colorBackground==="rgb(255, 0, 0)"){
@@ -24,22 +42,57 @@ const getColor = ()=>{
     }
 }
 
- getColor();
+const createContImg=(Img)=>{
+        
+        let figure = document.createElement("figure");
+        figure.setAttribute("id","figureId"+Img.name);
+        let img = document.createElement("img");
+        img.setAttribute("src",Img.src);
+        img.setAttribute("alt",Img.description);
+        img.className="imgSize";
+        let imgCaption = document.createElement("figcaption",Img.description);
 
-changeColorButtom.addEventListener("click",(event)=>{
+        figure.append(img);
+        figure.append(imgCaption);
+                
+        if(Img.name==="red"){            
+            contImgred.append(figure);
+        }else{
+            contImgviolet.append(figure);
+        }
+        
+ 
+}
+
+
+
+/*addEvents
+ ********************************************************************************************/
+
+changeColorButtom.addEventListener("click",()=>{
     bodyElement.classList.toggle("changeColor");
     getColor();
+    let deleteFigure;
+    memeCount=0;
+    if(colorBackground==="rgb(255, 0, 0)"){
+        deleteFigure = document.getElementById("figureIdviolet");
+        deleteFigure ? deleteFigure.remove():null;   
+    }else{
+        deleteFigure = document.getElementById("figureIdred");
+        deleteFigure ? deleteFigure.remove() :null;    
+    }
 })
 
 positionLabel.addEventListener("mousemove",(event)=>{
     positionSpan.textContent = event.clientY + "-" + event.clientX;
 })
 
-positionLabel.addEventListener("mouseleave",(event)=>{
+positionLabel.addEventListener("mouseleave",()=>{
     positionSpan.textContent = "-";
 })
 
-buttomMeme.addEventListener("click",(evento)=>{
+buttonMeme.addEventListener("click",()=>{
+
    if(memeCount<3) {
         let changeTop = (Math.random()*(WindowHeight- ButtomH));
         let changeLeft = (Math.random()*(WindowWidth- ButtomW));
@@ -48,9 +101,29 @@ buttomMeme.addEventListener("click",(evento)=>{
         buttonMeme.style.marginLeft= changeLeft+"px";       
         
         alert("Sigue intentandolo");
+   }else{
+        // const Imag = new memeCreateImg("test","test2");
+        getColor();
+        if(colorBackground==="rgb(255, 0, 0)"){
+            createContImg(newImgred);
+            memeCount=0;
+        }else{
+            createContImg(newImgviolet);
+            memeCount=0;
+        }
+        
+        // Imag.mensaje();
    }
    
    memeCount++;
 })
+
+/* functions
+*********************************************************************************************/
+ getColor();
+
+
+
+
 // document.body.style.setproperty('--pageColor', 'blue');
 
