@@ -1,5 +1,6 @@
 body{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -31,4 +32,8 @@ body{
 .imgSize{
     width:200px;
     height:200px;
+}
+
+#buttomMeme{
+z-index: 100;
 }

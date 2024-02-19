@@ -1,8 +1,8 @@
 /*declaraciones
  ********************************************************************************************/
 
-const backgroundSpan = document.querySelector(".row span");
-const positionSpan = document.querySelectorAll(".row span")[1];
+const backgroundSpan = document.querySelector(".content span");
+const positionSpan = document.querySelectorAll(".content span")[1];
 const positionLabel = document.querySelector(".boxDetection");
 const buttonMeme = document.getElementById("buttomMeme");
 
@@ -76,8 +76,8 @@ changeColorButtom.addEventListener("click",()=>{
     bodyElement.classList.toggle("changeColor");
     getColor();
     let deleteFigure;
-    // buttonMeme.style.clientX= ButtomPositionX;
-    // buttonMeme.style.clientY= ButtomPositionY;   
+     buttonMeme.style.marginTop = 0;
+     buttonMeme.style.marginLeft =0;   
     memeCount=0;
     if(colorBackground==="rgb(255, 0, 0)"){
         deleteFigure = document.getElementById("figureIdviolet");
