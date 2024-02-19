@@ -37,3 +37,8 @@ body{
 #buttomMeme{
 z-index: 100;
 }
+
+.generalContent{
+    display: flex;
+     flex-direction: row;
+}
