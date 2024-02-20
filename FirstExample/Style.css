@@ -1,0 +1,44 @@
+body{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--pageColor);
+    min-height: 100vh;
+    color:white;
+    font-size: 40px;
+}
+
+:root {
+    --pageColor:red;
+}
+
+.changeColor{
+    background-color: blueviolet;
+}
+
+.boxDetection{
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;       
+}
+
+.boxContainer{
+  display: flex;
+  justify-content: center;
+}
+
+.imgSize{
+    width:200px;
+    height:200px;
+}
+
+#buttomMeme{
+z-index: 100;
+}
+
+.generalContent{
+    display: flex;
+     flex-direction: row;
+}
