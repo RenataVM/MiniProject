@@ -246,7 +246,7 @@ p {
 
   /*link con el scroll*/
   .links-scroll{
-    background:var(--clr-white); ;
+    background:var(--clr-white); 
   }
   .links-scroll a {
     background: var(--clr-white);
