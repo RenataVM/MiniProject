@@ -111,7 +111,7 @@ header {
     url(imagenes/pintura-lago-montana-montana-al-fondo.jpg) center/cover no-repeat;
   }
   .banner {
-    min-height: 100vh;
+    min-height: 80vh;
     display: grid;
     place-items: center;
     text-align: center;
@@ -120,8 +120,10 @@ header {
 #about,
 #services,
 #tours {
-  height: 80vh;
+  height: 100vh;    
 }
+
+
 
 .links{
     padding: 0 30px;
@@ -175,6 +177,7 @@ h4 {
   line-height: 1.25;
   margin-bottom: 0.75rem;
   font-family: var(--ff-primary);
+  text-align: center;
 }
 h1 {
   font-size: 3rem;
@@ -261,3 +264,7 @@ p {
   .links-scroll a:hover {
     color: var(--clr-grey-1);
   }
+  /* section */
+.section {
+  padding-bottom: 5rem;
+}
